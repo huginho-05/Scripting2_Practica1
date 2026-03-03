@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   movementSpeed: 5
-  jumpHeight: 100
+  jumpHeight: 10000000
   gravityScale: -9.8
   feet: {fileID: 541138018}
   detectionRadius: 0.1
@@ -1219,7 +1219,7 @@ Animator:
   m_GameObject: {fileID: 919132147787444281}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 574ab58cad7496242827e731045b6cc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
