@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
     
     private void Jump()
     {
+        Debug.Log("Jump!");
         //mrua
         verticalMovement.y= Mathf.Sqrt(-2 * gravityScale * jumpHeight);
     }
@@ -87,13 +88,13 @@ public class PlayerController : MonoBehaviour
         //Calcula la velocidad objetivo (respetando tanto joystick como teclado)
         targetSpeed = movementSpeed * inputVector.magnitude;
         
-        Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedVelocity, movementSmoothFactor);
+        currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedVelocity, movementSmoothFactor);
         
         if (inputVector.sqrMagnitude > 0) //el jugador se mueve por input
         {
             float angleToRotate = Mathf.Atan2(inputVector.x, inputVector.y) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
             //multiplicar un cuaternión por un vector es rotar el vector
-            horizontalMovement = (Quaternion.Euler(0, angleToRotate, 0) * Vector3.forward) * movementSpeed;
+            horizontalMovement = (Quaternion.Euler(0, angleToRotate, 0) * Vector3.forward) * currentSpeed;
 
             float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, angleToRotate,
                 ref rotationVelocity,
@@ -128,10 +129,15 @@ public class PlayerController : MonoBehaviour
     private void GroundCheck()
     {
         if (Physics.CheckSphere(feet.position, detectionRadius, whatIsGround))
+        {
             isGrounded = true;
+        }
         else
+        {
             isGrounded = false;
+        }
     }
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(feet.position, detectionRadius);

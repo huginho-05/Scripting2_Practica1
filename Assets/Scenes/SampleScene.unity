@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   movementSpeed: 5
-  jumpHeight: 10000000
+  jumpHeight: 50
   gravityScale: -9.8
   feet: {fileID: 541138018}
   detectionRadius: 0.1
