@@ -3,9 +3,7 @@ using UnityEngine;
 public class SawBehaviour : MonoBehaviour
 {
     [Header("Saw Rotation")] 
-    [SerializeField] float sawSpeed_X;
-    [SerializeField] float sawSpeed_Y;
-    [SerializeField] float sawSpeed_Z;
+    [SerializeField] float sawRotationSpeed;
     
     [Header("Saw Movement")] 
     [SerializeField] private float speed;
@@ -16,11 +14,11 @@ public class SawBehaviour : MonoBehaviour
     void Update()
     {
         //Saw rotation
-        transform.Rotate(sawSpeed_X, sawSpeed_Y,sawSpeed_Z);
+        transform.Rotate(sawRotationSpeed * Time.deltaTime, 0, 0);
         
         //Saw movement
         timer += Time.deltaTime;
-        transform.Translate(direccionInicial * speed * Time.deltaTime);
+        transform.Translate(direccionInicial * speed * Time.deltaTime, Space.World);
             
         if (timer >= timerFloor)
         {
