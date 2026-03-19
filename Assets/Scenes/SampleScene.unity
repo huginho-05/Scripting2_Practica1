@@ -1964,7 +1964,7 @@ GameObject:
   - component: {fileID: 1226003183354836644}
   - component: {fileID: 2934920412467576435}
   m_Layer: 0
-  m_Name: Saw
+  m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2965,12 +2965,12 @@ GameObject:
   - component: {fileID: 516430356782484376}
   - component: {fileID: 1601816592743403030}
   m_Layer: 0
-  m_Name: SawBase
+  m_Name: Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6240733293590376249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,7 +3426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c295939f02ba6ba409947fea07258546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fuerzaSalto: 20
+  jumpForce: 10
 --- !u!4 &7930214443361397941
 Transform:
   m_ObjectHideFlags: 0

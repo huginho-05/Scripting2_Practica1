@@ -3,18 +3,22 @@ using UnityEngine;
 
 public class TrampolineBehaviour : MonoBehaviour
 {
-    [SerializeField] private float fuerzaSalto; // La fuerza con la que se lanza el jugador
+    [SerializeField] private float jumpForce;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Rigidbody rb = other.GetComponent<Rigidbody>(); // Obtener el Rigidbody2D del jugador
-            
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0); // Limpiar cualquier velocidad previa en el eje Y
-            
-            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplicar el impulso hacia arriba
-            
-            
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                //Resetear velocidad vertical
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+                //Impulso hacia arriba
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
         }
     }
 }
