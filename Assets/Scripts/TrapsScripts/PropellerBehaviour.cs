@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PropellerBehaviour : MonoBehaviour
 {
-    [SerializeField] float rotationSpeed;
+    [SerializeField] private float rotationSpeed;
     
     void Update()
     {
