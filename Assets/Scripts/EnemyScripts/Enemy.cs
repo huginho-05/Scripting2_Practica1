@@ -3,65 +3,60 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    [SerializeField] private Transform player;
-    
-    [Header ("Attack Behaviour")]
-    [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRadius;
-    [SerializeField] private LayerMask whatIsDamagable;
-    
-    private Animator anim;
+    public NavMeshAgent agent;
+    public Transform player;
 
-    void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        anim = GetComponentInChildren<Animator>();
-    }
-    
+    [Header("Distancias")]
+    public float attackDistance = 2f;
+
+    [Header("Ataque")]
+    public float attackCooldown = 1.5f;
+    public int damage = 10;
+
+    private float lastAttackTime;
+
+    [Header("Animator")]
+    public Animator animator;
+
     void Update()
     {
-        agent.SetDestination(player.position);
-        
-        //Para saber cuando un  agent llega a su destino
-        if (DestinationReached())
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        // Si está lejos → perseguir
+        if (distance > attackDistance)
         {
-            FaceToTarget();
-            
-            anim.SetBool("isAttacking", true);
-            agent.isStopped = true;
-        }
-    }
-
-    private void FaceToTarget()
-    {
-        Vector3 targetDirection = (player.transform.position - transform.position);
-        targetDirection.y = 0f;
-        Quaternion rotationToTarget = Quaternion.LookRotation(targetDirection);
-        transform.rotation = rotationToTarget;
-    }
-
-    private void DoDamage()
-    {
-        Collider[] attackResults = Physics.OverlapSphere(attackPoint.position, attackRadius, whatIsDamagable);
-
-        foreach (Collider attackResult in attackResults)
-        {
-            
-        }
-    }
-
-    private void OnAttackFinished()
-    {
-        if (agent.remainingDistance > agent.stoppingDistance)
-        {
-            anim.SetBool("isAttacking", false);
             agent.isStopped = false;
+            agent.SetDestination(player.position);
+
+            animator.SetBool("isAttacking", false);
+        }
+        // Si está cerca → atacar
+        else
+        {
+            agent.isStopped = true;
+
+            // Mirar al jugador
+            transform.LookAt(player);
+
+            animator.SetBool("isAttacking", true);
+
+            Attack();
         }
     }
 
-    private bool DestinationReached()
+    void Attack()
     {
-        return !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance;
+        if (Time.time >= lastAttackTime + attackCooldown)
+        {
+            lastAttackTime = Time.time;
+
+            // Intentar hacer daño al jugador
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.ReceiveDamage(damage);
+            }
+        }
     }
 }
