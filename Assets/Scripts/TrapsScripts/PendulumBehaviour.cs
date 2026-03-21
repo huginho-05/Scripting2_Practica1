@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PendulumBehaviour : MonoBehaviour
 {
-    [SerializeField] private float swingSpeed = 2f; //Velocidad de oscilación
-    [SerializeField] private float maxAngle = 45f;  //Ángulo máximo de oscilación (grados)
+    [SerializeField] private float swingSpeed; 
+    [SerializeField] private float maxAngle;  
     
-    private Quaternion startRotation; //Rotación inicial del objeto
+    private Quaternion startRotation; 
 
     void Start()
     {
