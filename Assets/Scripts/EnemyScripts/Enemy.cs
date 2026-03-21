@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     [SerializeField] private Transform player;
     
-    [Header ("Attack ehaviour")]
+    [Header ("Attack Behaviour")]
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRadius;
     [SerializeField] private LayerMask whatIsDamagable;
