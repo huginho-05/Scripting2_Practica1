@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8463483345203997993}
   - component: {fileID: 6172658374920040832}
   - component: {fileID: 3133209125813468602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 5401577572160361780}
   - component: {fileID: 730464310695770372}
   - component: {fileID: 6341341070882601562}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ClosingWall
   m_TagString: Trap
   m_Icon: {fileID: 0}

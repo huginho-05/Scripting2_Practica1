@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -6,15 +7,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int playerMaxLife;
     [SerializeField] private int playerCurrentLife;
     
-    private Vector3 initialPosition;
-
-    private Rigidbody rb;
 
     void Start()
     {
         playerCurrentLife = playerMaxLife;
-        initialPosition = transform.position;
-        rb = GetComponent<Rigidbody>();
     }
     
     public void ReceiveDamage(int damage)
@@ -23,8 +19,7 @@ public class PlayerHealth : MonoBehaviour
         playerCurrentLife -= damageTaken;
         if (playerCurrentLife <= 0)
         {
-            rb.position = initialPosition;
-            playerCurrentLife = playerMaxLife;
+            SceneManager.LoadSceneAsync(1);
         }
     }
 
@@ -32,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            ReceiveDamage(25); 
+            ReceiveDamage(100); 
         }
     }
   

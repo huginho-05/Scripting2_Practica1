@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 7464292687542019257}
   - component: {fileID: 605424564143927956}
   - component: {fileID: 2319074530452922479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}

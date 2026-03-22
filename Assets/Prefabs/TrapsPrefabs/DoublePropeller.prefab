@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3506165213424734315}
   - component: {fileID: 5359675752220499381}
   - component: {fileID: 6417096517885265930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoublePropeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5509811989191475638}
   - component: {fileID: 8684849443995175997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trigger2
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1203148259594716693}
   - component: {fileID: 8738756650233608805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trigger1
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 5381179889523540463}
   - component: {fileID: 9090167684023164224}
   - component: {fileID: 7940549308989198870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blades
   m_TagString: Untagged
   m_Icon: {fileID: 0}

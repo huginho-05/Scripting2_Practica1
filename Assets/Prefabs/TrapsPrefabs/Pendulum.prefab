@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1639654496488216932}
   - component: {fileID: 4347105088885027306}
   - component: {fileID: 9213878105536165303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pendulum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
