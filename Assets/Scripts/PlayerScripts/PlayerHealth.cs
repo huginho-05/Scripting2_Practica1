@@ -22,12 +22,18 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadSceneAsync(1);
         }
     }
+    
+    public void AddHealth(int amount)
+    {
+        playerCurrentLife += amount;
+        playerCurrentLife = Mathf.Clamp(playerCurrentLife, 0, playerMaxLife);
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            ReceiveDamage(100); 
+            ReceiveDamage(10); 
         }
     }
     
