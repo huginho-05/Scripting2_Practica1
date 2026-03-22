@@ -35,6 +35,10 @@ public class PlayerHealth : MonoBehaviour
         {
             ReceiveDamage(10); 
         }
+        if (collision.gameObject.CompareTag("DeathTrigger"))
+        {
+            ReceiveDamage(100); 
+        }
     }
     
     public int GetCurrentLife()

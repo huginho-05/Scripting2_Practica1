@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform player;
     
 
-    [Header("Ataque")]
-    [SerializeField] private float attackCooldown = 1.5f;
-    [SerializeField] private int damage = 100;
-    [SerializeField] private float attackDistance = 2f;
+    [Header("Attack")]
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private int damage;
+    [SerializeField] private float attackDistance;
 
     private float lastAttackTime;
     

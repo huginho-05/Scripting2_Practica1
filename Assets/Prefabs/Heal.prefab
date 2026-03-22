@@ -106,7 +106,7 @@ MonoBehaviour:
   floatingSpeed: 0
   floatingHeight: 0
   rotationSpeed: 100
-  healthAmount: 20
+  healthAmount: 10
 --- !u!64 &218177707861343138
 MeshCollider:
   m_ObjectHideFlags: 0
