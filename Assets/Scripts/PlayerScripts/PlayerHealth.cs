@@ -8,10 +8,13 @@ public class PlayerHealth : MonoBehaviour
     
     private Vector3 initialPosition;
 
+    private Rigidbody rb;
+
     void Start()
     {
         playerCurrentLife = playerMaxLife;
         initialPosition = transform.position;
+        rb = GetComponent<Rigidbody>();
     }
     
     public void ReceiveDamage(int damage)
@@ -20,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         playerCurrentLife -= damageTaken;
         if (playerCurrentLife <= 0)
         {
-            transform.position = initialPosition;
+            rb.position = initialPosition;
             playerCurrentLife = playerMaxLife;
         }
     }
@@ -29,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            ReceiveDamage(100); 
+            ReceiveDamage(25); 
         }
     }
   
