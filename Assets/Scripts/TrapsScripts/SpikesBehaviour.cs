@@ -17,7 +17,6 @@ public class SpikesBehaviour : MonoBehaviour
         actualDirection = initialDirection;
     }
     
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;

@@ -18,12 +18,10 @@ public class ClosingWallBehaviour : MonoBehaviour
     {
         spikes = transform; 
         wall = transform.GetChild(0);  
-
-        //Guardar las posiciones originales
+        
         initialWallPosition = wall.position;
         initialSpikesPosition = spikes.position;
-
-        //Empezar el ciclo de movimiento
+        
         StartCoroutine(MoveTrapCycle());
     }
 
@@ -31,7 +29,7 @@ public class ClosingWallBehaviour : MonoBehaviour
     {
         while (true)
         {
-            // Mover ambos objetos hacia el centro
+            //Mover ambos objetos hacia el centro
             yield return StartCoroutine(MoveTowardCollision());
 
             //Esperar unos segundos tras encontrarse
