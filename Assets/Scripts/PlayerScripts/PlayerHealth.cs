@@ -30,5 +30,15 @@ public class PlayerHealth : MonoBehaviour
             ReceiveDamage(100); 
         }
     }
+    
+    public int GetCurrentLife()
+    {
+        return playerCurrentLife;
+    }
+
+    public int GetMaxLife()
+    {
+        return playerMaxLife;
+    }
   
 }
