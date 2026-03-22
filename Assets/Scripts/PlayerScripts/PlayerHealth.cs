@@ -6,17 +6,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int playerMaxLife;
     [SerializeField] private int playerCurrentLife;
     
-    private Vector3 checkpointPosition;
+    private Vector3 initialPosition;
 
     void Start()
     {
         playerCurrentLife = playerMaxLife;
-        checkpointPosition = transform.position;
-    }
-    
-    public void SetCheckpoint(Vector3 newCheckpoint)
-    {
-        checkpointPosition = newCheckpoint;
+        initialPosition = transform.position;
     }
     
     public void ReceiveDamage(int damage)
@@ -25,27 +20,17 @@ public class PlayerHealth : MonoBehaviour
         playerCurrentLife -= damageTaken;
         if (playerCurrentLife <= 0)
         {
-            transform.position = checkpointPosition;
+            transform.position = initialPosition;
             playerCurrentLife = playerMaxLife;
         }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        //Traps
         if (collision.gameObject.CompareTag("Trap"))
         {
-            ReceiveDamage(25); 
+            ReceiveDamage(100); 
         }
     }
-    
-    public int GetCurrentLife()
-    {
-        return playerCurrentLife;
-    }
-
-    public int GetMaxLife()
-    {
-        return playerMaxLife;
-    }
+  
 }

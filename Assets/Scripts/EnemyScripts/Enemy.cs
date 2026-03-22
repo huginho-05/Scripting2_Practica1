@@ -3,26 +3,24 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public Transform player;
-
-    [Header("Distancias")]
-    public float attackDistance = 2f;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Transform player;
+    
 
     [Header("Ataque")]
-    public float attackCooldown = 1.5f;
-    public int damage = 10;
+    [SerializeField] private float attackCooldown = 1.5f;
+    [SerializeField] private int damage = 100;
+    [SerializeField] private float attackDistance = 2f;
 
     private float lastAttackTime;
-
-    [Header("Animator")]
-    public Animator animator;
+    
+    [SerializeField] private Animator animator;
 
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
-        // Si está lejos → perseguir
+        // Si está lejos, perseguir
         if (distance > attackDistance)
         {
             agent.isStopped = false;
@@ -30,12 +28,11 @@ public class Enemy : MonoBehaviour
 
             animator.SetBool("isAttacking", false);
         }
-        // Si está cerca → atacar
+        // Si está cerca, atacar
         else
         {
             agent.isStopped = true;
-
-            // Mirar al jugador
+            
             transform.LookAt(player);
 
             animator.SetBool("isAttacking", true);

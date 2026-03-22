@@ -247,8 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClosingWallBehaviour
   speed: 3
   collisionThreshold: 0.5
-  waitTimeAtCollision: 2
-  waitTimeAtStartPosition: 2
+  waitTimeAtCollision: 1
+  waitTimeAtStartPosition: 1
 --- !u!65 &6341341070882601562
 BoxCollider:
   m_ObjectHideFlags: 0
